@@ -1,0 +1,6 @@
+@use "../abstracts/colors" as *;
+
+body {
+  background-color: $clr-light-neutral-200;
+  color: $clr-light-neutral-500;
+}

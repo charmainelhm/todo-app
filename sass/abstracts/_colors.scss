@@ -1,0 +1,32 @@
+// Light theme
+$clr-light-neutral-100: hsl(0, 0%, 98%); // item bg
+$clr-light-neutral-200: hsl(236, 33%, 92%); // main bg + radio button border
+$clr-light-neutral-300: hsl(
+  233,
+  11%,
+  84%
+); // border between todo item + complete item
+$clr-light-neutral-400: hsl(
+  236,
+  9%,
+  61%
+); // menu text + "drag and drop" + placeholder
+$clr-light-neutral-500: hsl(235, 19%, 35%); // input + todo-items + hover
+
+// Dark theme
+$clr-dark-neutral-100: hsl(236, 33%, 92%); // btn hover
+$clr-dark-neutral-200: hsl(234, 39%, 85%); // input + todo-items
+$clr-dark-neutral-300: hsl(
+  234,
+  11%,
+  52%
+); // border between todo item + menu text + "drag and drop" + placeholder
+$clr-dark-neutral-400: hsl(233, 14%, 35%); // completed item
+$clr-dark-neutral-500: hsl(237, 14%, 26%); // radio button
+$clr-dark-neutral-600: hsl(235, 24%, 19%); // item bg
+$clr-dark-neutral-700: hsl(235, 21%, 11%); // main bg
+
+// shared color
+$clr-gradient-one: hsl(192, 100%, 67%);
+$clr-gradient-two: hsl(280, 87%, 65%);
+$clr-accent: hsl(220, 98%, 61%);
