@@ -18,39 +18,45 @@
   </head>
   <body>
     <main>
-      <div>
+      <div class="container pd-400">
         <form>
           <input type="text" placeholder="Create a new todo..." />
         </form>
       </div>
-      <div>
+      <div class="container">
         <ul class="todo-list">
-          <li class="todo-list__item">
-            <input type="checkbox" name="item-one" id="item-one" />
-            <label for="item-one">Complete online JavaScript course</label>
+          <li class="todo-list__item | flex-row | pd-400">
+            <div class="flex-row">
+              <input type="checkbox" name="item-one" id="item-one" />
+              <label for="item-one">Complete online JavaScript course</label>
+            </div>
             <btn
               ><span class="visually-hidden">Remove item</span
               ><img src="images/icon-cross.svg"
             /></btn>
           </li>
-          <li class="todo-list__item">
-            <input type="checkbox" name="item-two" id="item-two" />
-            <label for="item-two">Jog around the park 3x</label>
+          <li class="todo-list__item | flex-row | pd-400">
+            <div class="flex-row">
+              <input type="checkbox" name="item-two" id="item-two" />
+              <label for="item-two">Jog around the park 3x</label>
+            </div>
             <btn
               ><span class="visually-hidden">Remove item</span
               ><img src="images/icon-cross.svg"
             /></btn>
           </li>
-          <li class="todo-list__item">
-            <input type="checkbox" name="item-three" id="item-three" />
-            <label for="item-three">10 minutes meditation</label>
+          <li class="todo-list__item | flex-row | pd-400">
+            <div class="flex-row">
+              <input type="checkbox" name="item-three" id="item-three" />
+              <label for="item-three">10 minutes meditation</label>
+            </div>
             <btn
               ><span class="visually-hidden">Remove item</span
               ><img src="images/icon-cross.svg"
             /></btn>
           </li>
         </ul>
-        <div class="menu">
+        <div class="menu | flex-row | pd-400">
           <p class="menu__summary">
             <span class="items-left">3</span> items left
           </p>

@@ -32,6 +32,10 @@ button {
   cursor: pointer;
 }
 
+ul {
+  list-style-type: none;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.1rem;
@@ -44,6 +48,40 @@ body {
 body {
   background-color: hsl(236deg, 33%, 92%);
   color: hsl(235deg, 19%, 35%);
+}
+
+.container {
+  width: 90%;
+  max-width: 540px;
+  margin-inline: auto;
+  background-color: hsl(0deg, 0%, 98%);
+  border-radius: 6px;
+}
+.container [type=text] {
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+.pd-400 {
+  padding: 1rem 2rem;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 /*# sourceMappingURL=style.css.map */

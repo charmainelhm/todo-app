@@ -1,0 +1,9 @@
+@use "../abstracts/colors" as *;
+
+@mixin container {
+  width: 90%;
+  max-width: 540px;
+  margin-inline: auto;
+  background-color: $clr-light-neutral-100;
+  border-radius: 6px;
+}

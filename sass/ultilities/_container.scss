@@ -1,0 +1,11 @@
+@use "../abstracts/mixins" as *;
+
+.container {
+  @include container;
+
+  [type="text"] {
+    background: none;
+    border: none;
+    width: 100%;
+  }
+}
