@@ -1,0 +1,12 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/colors" as *;
+
+.add-todo {
+  &::before {
+    @include custom-checkbox;
+  }
+
+  input:placeholder {
+    color: $clr-light-neutral-400;
+  }
+}

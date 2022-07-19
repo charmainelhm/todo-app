@@ -21,6 +21,13 @@ button {
   color: inherit;
 }
 
+a,
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 a {
   text-decoration: none;
 }
@@ -33,4 +40,8 @@ button {
 
 ul {
   list-style-type: none;
+}
+
+input {
+  outline: none;
 }

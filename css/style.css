@@ -22,6 +22,13 @@ button {
   color: inherit;
 }
 
+a,
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 a {
   text-decoration: none;
 }
@@ -36,6 +43,10 @@ ul {
   list-style-type: none;
 }
 
+input {
+  outline: none;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.1rem;
@@ -43,6 +54,64 @@ body {
 
 .attribution {
   text-align: center;
+}
+
+.todo-list__item {
+  border-bottom: 1.5px solid hsl(236deg, 33%, 92%);
+}
+.todo-list__item [type=checkbox] {
+  display: none;
+}
+.todo-list__item label {
+  cursor: pointer;
+  position: relative;
+}
+.todo-list__item label::before {
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  border: 1.5px solid hsl(236deg, 33%, 92%);
+}
+.todo-list__item label:hover::before {
+  border-color: transparent;
+  background-image: linear-gradient(hsl(0deg, 0%, 98%), hsl(0deg, 0%, 98%)), linear-gradient(to right bottom, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.todo-list__item [type=checkbox]:checked + label {
+  text-decoration: line-through;
+  color: hsl(233deg, 11%, 84%);
+}
+.todo-list__item [type=checkbox]:checked + label::before {
+  background: url(../images/icon-check.svg) center no-repeat, linear-gradient(to right bottom, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+  border: none;
+}
+
+.add-todo::before {
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  border: 1.5px solid hsl(236deg, 33%, 92%);
+}
+.add-todo input:placeholder {
+  color: hsl(236deg, 9%, 61%);
+}
+
+button img {
+  width: 100%;
+}
+
+.btn-remove-item {
+  width: 14px;
+  height: 14px;
 }
 
 body {
@@ -60,7 +129,7 @@ body {
 .container [type=text] {
   background: none;
   border: none;
-  width: 100%;
+  width: 90%;
 }
 
 .pd-400 {

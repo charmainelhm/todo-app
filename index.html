@@ -19,41 +19,41 @@
   <body>
     <main>
       <div class="container pd-400">
-        <form>
+        <form class="add-todo">
           <input type="text" placeholder="Create a new todo..." />
         </form>
       </div>
       <div class="container">
         <ul class="todo-list">
           <li class="todo-list__item | flex-row | pd-400">
-            <div class="flex-row">
-              <input type="checkbox" name="item-one" id="item-one" />
+            <div>
+              <input type="checkbox" name="item-one" id="item-one" checked />
               <label for="item-one">Complete online JavaScript course</label>
             </div>
-            <btn
-              ><span class="visually-hidden">Remove item</span
-              ><img src="images/icon-cross.svg"
-            /></btn>
+            <button class="btn-remove-item">
+              <span class="visually-hidden">Remove item</span
+              ><img src="images/icon-cross.svg" />
+            </button>
           </li>
           <li class="todo-list__item | flex-row | pd-400">
-            <div class="flex-row">
+            <div>
               <input type="checkbox" name="item-two" id="item-two" />
               <label for="item-two">Jog around the park 3x</label>
             </div>
-            <btn
-              ><span class="visually-hidden">Remove item</span
-              ><img src="images/icon-cross.svg"
-            /></btn>
+            <button class="btn-remove-item">
+              <span class="visually-hidden">Remove item</span
+              ><img src="images/icon-cross.svg" />
+            </button>
           </li>
           <li class="todo-list__item | flex-row | pd-400">
-            <div class="flex-row">
+            <div>
               <input type="checkbox" name="item-three" id="item-three" />
               <label for="item-three">10 minutes meditation</label>
             </div>
-            <btn
-              ><span class="visually-hidden">Remove item</span
-              ><img src="images/icon-cross.svg"
-            /></btn>
+            <button class="btn-remove-item">
+              <span class="visually-hidden">Remove item</span
+              ><img src="images/icon-cross.svg" />
+            </button>
           </li>
         </ul>
         <div class="menu | flex-row | pd-400">
