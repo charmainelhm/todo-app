@@ -1,0 +1,9 @@
+@use "../abstracts/fonts" as *;
+
+.fs-300 {
+  font-size: $fs-300;
+}
+
+.fw-semi-bold {
+  font-weight: $fw-semi-bold;
+}

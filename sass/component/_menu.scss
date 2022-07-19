@@ -1,0 +1,17 @@
+@use "../abstracts/mixins" as *;
+
+.menu {
+  @media (max-width: 600px) {
+    position: relative;
+
+    .list-filter {
+      position: absolute;
+      @include container;
+      @include padding;
+      top: 140%;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+  }
+}

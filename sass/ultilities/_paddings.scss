@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as *;
+
 .pd-400 {
-  padding: 1rem 2rem;
+  @include padding;
 }

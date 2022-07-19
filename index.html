@@ -60,12 +60,27 @@
           <p class="menu__summary">
             <span class="items-left">3</span> items left
           </p>
-          <div class="todo-filter">
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
+          <div class="list-filter | horizontal-flow">
+            <button
+              class="btn-text fs-300 fw-semi-bold"
+              data-current-filter="true"
+            >
+              All
+            </button>
+            <button
+              class="btn-text fs-300 fw-semi-bold"
+              data-current-filter="false"
+            >
+              Active
+            </button>
+            <button
+              class="btn-text fs-300 fw-semi-bold"
+              data-current-filter="false"
+            >
+              Completed
+            </button>
           </div>
-          <button>Clear Completed</button>
+          <button class="btn-text">Clear Completed</button>
         </div>
       </div>
     </main>

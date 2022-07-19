@@ -109,14 +109,42 @@ button img {
   width: 100%;
 }
 
+button[data-current-filter=true] {
+  color: hsl(220deg, 98%, 61%);
+}
+
+.btn-text:hover {
+  color: hsl(235deg, 19%, 35%);
+}
+
 .btn-remove-item {
   width: 14px;
   height: 14px;
 }
 
+@media (max-width: 600px) {
+  .menu {
+    position: relative;
+  }
+  .menu .list-filter {
+    position: absolute;
+    background-color: hsl(0deg, 0%, 98%);
+    border-radius: 6px;
+    padding: 1.5rem 2rem;
+    top: 140%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+
 body {
   background-color: hsl(236deg, 33%, 92%);
   color: hsl(235deg, 19%, 35%);
+}
+
+.menu {
+  color: hsl(236deg, 9%, 61%);
 }
 
 .container {
@@ -133,7 +161,7 @@ body {
 }
 
 .pd-400 {
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
 }
 
 .flex-row {
@@ -151,6 +179,18 @@ body {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.horizontal-flow > * + * {
+  margin-left: 1.5rem;
+}
+
+.fs-300 {
+  font-size: 1.4rem;
+}
+
+.fw-semi-bold {
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */

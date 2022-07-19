@@ -1,7 +1,7 @@
 @use "../abstracts/mixins" as *;
 
 .container {
-  @include container;
+  @include restricted-container;
 
   [type="text"] {
     background: none;

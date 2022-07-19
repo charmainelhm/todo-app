@@ -1,7 +1,17 @@
+@use "../abstracts/colors" as *;
+
 button {
   img {
     width: 100%;
   }
+}
+
+button[data-current-filter="true"] {
+  color: $clr-accent;
+}
+
+.btn-text:hover {
+  color: $clr-light-neutral-500;
 }
 
 .btn-remove-item {
