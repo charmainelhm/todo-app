@@ -17,6 +17,52 @@
     <title>Frontend Mentor | Todo app</title>
   </head>
   <body>
+    <main>
+      <div>
+        <form>
+          <input type="text" placeholder="Create a new todo..." />
+        </form>
+      </div>
+      <div>
+        <ul class="todo-list">
+          <li class="todo-list__item">
+            <input type="checkbox" name="item-one" id="item-one" />
+            <label for="item-one">Complete online JavaScript course</label>
+            <btn
+              ><span class="visually-hidden">Remove item</span
+              ><img src="images/icon-cross.svg"
+            /></btn>
+          </li>
+          <li class="todo-list__item">
+            <input type="checkbox" name="item-two" id="item-two" />
+            <label for="item-two">Jog around the park 3x</label>
+            <btn
+              ><span class="visually-hidden">Remove item</span
+              ><img src="images/icon-cross.svg"
+            /></btn>
+          </li>
+          <li class="todo-list__item">
+            <input type="checkbox" name="item-three" id="item-three" />
+            <label for="item-three">10 minutes meditation</label>
+            <btn
+              ><span class="visually-hidden">Remove item</span
+              ><img src="images/icon-cross.svg"
+            /></btn>
+          </li>
+        </ul>
+        <div class="menu">
+          <p class="menu__summary">
+            <span class="items-left">3</span> items left
+          </p>
+          <div class="todo-filter">
+            <button>All</button>
+            <button>Active</button>
+            <button>Completed</button>
+          </div>
+          <button>Clear Completed</button>
+        </div>
+      </div>
+    </main>
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
