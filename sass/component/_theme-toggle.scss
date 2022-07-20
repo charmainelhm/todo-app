@@ -1,0 +1,15 @@
+.theme-toggle {
+  label {
+    display: inline-block;
+    font-size: 0;
+    transition: transform 0.3s ease-out;
+  }
+
+  input[type="radio"]:checked + label {
+    transform: translateY(-50%);
+    img {
+      height: 0px;
+      width: 0px;
+    }
+  }
+}

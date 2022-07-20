@@ -47,23 +47,31 @@ input {
   outline: none;
 }
 
+label {
+  cursor: pointer;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.1rem;
 }
 
+h1 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  color: hsl(0deg, 0%, 98%);
+  letter-spacing: 0.7rem;
+}
+
 .attribution {
   text-align: center;
+  padding-top: 10rem;
 }
 
 .todo-list__item {
   border-bottom: 1.5px solid hsl(236deg, 33%, 92%);
 }
-.todo-list__item [type=checkbox] {
-  display: none;
-}
 .todo-list__item label {
-  cursor: pointer;
   position: relative;
 }
 .todo-list__item label::before {
@@ -138,7 +146,23 @@ button[data-current-filter=true] {
   }
 }
 
+.theme-toggle label {
+  display: inline-block;
+  font-size: 0;
+  transition: transform 0.3s ease-out;
+}
+.theme-toggle input[type=radio]:checked + label {
+  transform: translateY(-50%);
+}
+.theme-toggle input[type=radio]:checked + label img {
+  height: 0px;
+  width: 0px;
+}
+
 body {
+  background-image: url(../images/bg-mobile-light.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
   background-color: hsl(236deg, 33%, 92%);
   color: hsl(235deg, 19%, 35%);
 }
@@ -157,11 +181,25 @@ body {
 .container [type=text] {
   background: none;
   border: none;
+  width: 80%;
+}
+
+.container + .container {
+  margin-top: 2rem;
+}
+
+.fence {
   width: 90%;
+  max-width: 540px;
+  margin-inline: auto;
 }
 
 .pd-400 {
   padding: 1.5rem 2rem;
+}
+
+.pd-block-600 {
+  padding-block: 3rem;
 }
 
 .flex-row {
@@ -191,6 +229,10 @@ body {
 
 .fw-semi-bold {
   font-weight: 500;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

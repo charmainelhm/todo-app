@@ -1,6 +1,9 @@
 @use "../abstracts/colors" as *;
 
 body {
+  background-image: url(../images/bg-mobile-light.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
   background-color: $clr-light-neutral-200;
   color: $clr-light-neutral-500;
 }

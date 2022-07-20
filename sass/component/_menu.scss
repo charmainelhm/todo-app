@@ -6,7 +6,7 @@
 
     .list-filter {
       position: absolute;
-      @include container;
+      @include base;
       @include padding;
       top: 140%;
       left: 0;

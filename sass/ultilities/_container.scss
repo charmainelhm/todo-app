@@ -1,11 +1,15 @@
 @use "../abstracts/mixins" as *;
 
 .container {
-  @include restricted-container;
+  @include container;
 
   [type="text"] {
     background: none;
     border: none;
-    width: 90%;
+    width: 80%;
   }
+}
+
+.container + .container {
+  margin-top: 2rem;
 }

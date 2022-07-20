@@ -1,15 +1,19 @@
 @use "../abstracts/colors" as *;
 
-@mixin container {
+@mixin base {
   background-color: $clr-light-neutral-100;
   border-radius: 6px;
 }
 
-@mixin restricted-container {
+@mixin fence {
   width: 90%;
   max-width: 540px;
   margin-inline: auto;
-  @include container;
+}
+
+@mixin container {
+  @include fence;
+  @include base;
 }
 
 @mixin custom-checkbox {
@@ -23,8 +27,12 @@
   border: 1.5px solid $clr-light-neutral-200;
 }
 
-@mixin padding($type: regular) {
-  @if $type == regular {
-    padding: 1.5rem 2rem;
+@mixin padding($inline: 2rem, $block: 1.5rem, $type: default) {
+  @if $type == inline {
+    padding-inline: $inline;
+  } @else if $type == block {
+    padding-block: $block;
+  } @else {
+    padding: $block $inline;
   }
 }

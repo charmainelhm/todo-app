@@ -3,3 +3,7 @@
 .pd-400 {
   @include padding;
 }
+
+.pd-block-600 {
+  @include padding($block: 3rem, $type: block);
+}

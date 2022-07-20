@@ -4,12 +4,7 @@
 .todo-list__item {
   border-bottom: 1.5px solid $clr-light-neutral-200;
 
-  [type="checkbox"] {
-    display: none;
-  }
-
   label {
-    cursor: pointer;
     position: relative;
   }
 
