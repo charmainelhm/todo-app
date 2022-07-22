@@ -4,10 +4,12 @@ const addTodo = document.querySelector(".add-todo");
 const todoInput = addTodo.querySelector("input");
 const todoList = document.querySelector(".todo-list");
 const filterTodoBtns = document.querySelectorAll(".list-filter button");
-const todoListItems = [];
+const btnClearCompleted = document.querySelector(".btn-clear-completed");
+const activeCounter = document.querySelector(".menu__summary .items-left");
+let todoAllItems = [];
 let todoActiveItems = [];
 let todoCompletedItems = [];
-let currentList = todoListItems;
+let currentListName, currentList;
 
 const addItem = function (item) {
   const html = `<li class="todo-list__item | flex-row | pd-400" data-index="${
@@ -33,6 +35,14 @@ const addItem = function (item) {
 };
 
 const updateTodoList = function (addNewItem = false) {
+  if (currentListName === "Active") {
+    currentList = todoActiveItems;
+  } else if (currentListName === "Completed") {
+    currentList = todoCompletedItems;
+  } else {
+    currentList = todoAllItems;
+  }
+
   if (!addNewItem) {
     todoList.innerHTML = "";
     currentList.forEach((item) => addItem(item));
@@ -42,6 +52,7 @@ const updateTodoList = function (addNewItem = false) {
   }
 };
 
+// Clear input field after adding item
 const clearInput = function () {
   todoInput.value = "";
 };
@@ -50,12 +61,13 @@ const addNewTodo = function (e) {
   e.preventDefault();
   const todoItem = e.target[0].value;
   if (todoItem === "") return;
-  todoListItems.push({
+  todoAllItems.push({
     activity: todoItem,
     completed: false,
-    index: todoListItems.length,
+    index: todoAllItems.length,
   });
   clearInput();
+  updateActiveCounter();
   updateTodoList(true);
 };
 
@@ -64,48 +76,48 @@ const removeTodo = function (e) {
   if (target.tagName !== "IMG" && target.parentElement.tagName !== "BUTTON")
     return;
   const itemIndex = Number(target.closest("li").dataset.index);
-  const arrayIndex = todoListItems.findIndex(
-    (item) => item.index === itemIndex
-  );
-  todoListItems.splice(arrayIndex, 1);
+  const arrayIndex = todoAllItems.findIndex((item) => item.index === itemIndex);
+  todoAllItems.splice(arrayIndex, 1);
   updateTodoList(false);
 };
 
 const updateItemState = function (e) {
   const currentIndex = Number(e.target.id.replace("item-", ""));
-  const currentItem = todoListItems.find((item) => item.index === currentIndex);
+  const currentItem = todoAllItems.find((item) => item.index === currentIndex);
   currentItem.completed = !currentItem.completed;
+  updateActiveCounter();
+  updateLists();
 };
 
 const resetFilterBtnStyle = function () {
   filterTodoBtns.forEach((button) => (button.dataset.currentFilter = "false"));
 };
 
+const updateLists = function () {
+  todoActiveItems = todoAllItems.filter((item) => !item.completed);
+  todoCompletedItems = todoAllItems.filter((item) => item.completed);
+  updateTodoList();
+};
+
+const updateActiveCounter = function () {
+  const activeItems = todoAllItems.filter((item) => !item.completed).length;
+  activeCounter.innerText = `${activeItems}`;
+};
+
 filterTodoBtns.forEach((button) =>
   button.addEventListener("click", function (e) {
+    if (todoAllItems.length === 0) return;
     resetFilterBtnStyle();
     this.dataset.currentFilter = "true";
-    const filterType = e.target.innerText;
-
-    if (filterType === "Active") {
-      todoActiveItems = todoListItems.filter((item) => !item.completed);
-      currentList = todoActiveItems;
-      updateTodoList();
-    }
-
-    if (filterType === "Completed") {
-      todoCompletedItems = todoListItems.filter((item) => item.completed);
-      currentList = todoCompletedItems;
-      updateTodoList();
-    }
-
-    if (filterType === "All") {
-      currentList = todoListItems;
-      updateTodoList();
-    }
+    currentListName = e.target.innerText;
+    updateLists();
   })
 );
 
 addTodo.addEventListener("submit", addNewTodo);
 todoList.addEventListener("change", updateItemState);
 todoList.addEventListener("click", removeTodo);
+btnClearCompleted.addEventListener("click", function () {
+  todoAllItems = [...todoActiveItems];
+  updateLists();
+});
