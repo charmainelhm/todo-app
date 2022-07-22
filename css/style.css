@@ -1,4 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap");
+:root {
+  --clr-bg-main: hsl(236deg, 33%, 92%);
+  --clr-bg-item: hsl(0deg, 0%, 98%);
+  --clr-border: hsl(233deg, 11%, 84%);
+  --clr-radio: hsl(236deg, 33%, 92%);
+  --clr-hover: hsl(235deg, 19%, 35%);
+  --clr-text-primary: hsl(235deg, 19%, 35%);
+  --clr-text-secondary: hsl(236deg, 9%, 61%);
+  --clr-text-tertiary: hsl(233deg, 11%, 84%);
+}
+
+.dark {
+  --clr-bg-main: hsl(235deg, 21%, 11%);
+  --clr-bg-item: hsl(235deg, 24%, 19%);
+  --clr-border: hsl(234deg, 11%, 52%);
+  --clr-radio: hsl(237deg, 14%, 26%);
+  --clr-hover: hsl(236deg, 33%, 92%);
+  --clr-text-primary: hsl(234deg, 39%, 85%);
+  --clr-text-secondary: hsl(234deg, 11%, 52%);
+  --clr-text-tertiary: hsl(233deg, 14%, 35%);
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -45,6 +67,7 @@ ul {
 
 input {
   outline: none;
+  color: inherit;
 }
 
 label {
@@ -59,17 +82,15 @@ body {
 h1 {
   font-size: 2.4rem;
   text-transform: uppercase;
-  color: hsl(0deg, 0%, 98%);
   letter-spacing: 0.7rem;
 }
 
 .attribution {
-  text-align: center;
   padding-top: 10rem;
 }
 
 .todo-list__item {
-  border-bottom: 1.5px solid hsl(236deg, 33%, 92%);
+  border-bottom: 1.5px solid;
 }
 .todo-list__item label {
   position: relative;
@@ -82,17 +103,16 @@ h1 {
   width: 20px;
   height: 20px;
   margin-right: 1rem;
-  border: 1.5px solid hsl(236deg, 33%, 92%);
+  border: 1.5px solid var(--clr-radio);
 }
 .todo-list__item label:hover::before {
   border-color: transparent;
-  background-image: linear-gradient(hsl(0deg, 0%, 98%), hsl(0deg, 0%, 98%)), linear-gradient(to right bottom, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+  background-image: linear-gradient(var(--clr-bg-item), var(--clr-bg-item)), linear-gradient(to right bottom, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
 .todo-list__item [type=checkbox]:checked + label {
   text-decoration: line-through;
-  color: hsl(233deg, 11%, 84%);
 }
 .todo-list__item [type=checkbox]:checked + label::before {
   background: url(../images/icon-check.svg) center no-repeat, linear-gradient(to right bottom, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
@@ -107,10 +127,7 @@ h1 {
   width: 20px;
   height: 20px;
   margin-right: 1rem;
-  border: 1.5px solid hsl(236deg, 33%, 92%);
-}
-.add-todo input:placeholder {
-  color: hsl(236deg, 9%, 61%);
+  border: 1.5px solid var(--clr-radio);
 }
 
 button img {
@@ -119,10 +136,6 @@ button img {
 
 button[data-current-filter=true] {
   color: hsl(220deg, 98%, 61%);
-}
-
-.btn-text:hover {
-  color: hsl(235deg, 19%, 35%);
 }
 
 .btn-remove-item {
@@ -136,8 +149,9 @@ button[data-current-filter=true] {
   }
   .menu .list-filter {
     position: absolute;
-    background-color: hsl(0deg, 0%, 98%);
+    background-color: var(--clr-bg-item);
     border-radius: 6px;
+    background-color: hsl(0deg, 0%, 98%);
     padding: 1.5rem 2rem;
     top: 140%;
     left: 0;
@@ -163,19 +177,52 @@ body {
   background-image: url(../images/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: hsl(236deg, 33%, 92%);
-  color: hsl(235deg, 19%, 35%);
+  background-color: var(--clr-bg-main);
+  color: var(--clr-text-primary);
+}
+@media (min-width: 600px) {
+  body {
+    background-image: url(../images/bg-desktop-light.jpg);
+  }
+}
+
+h1 {
+  color: hsl(0deg, 0%, 98%);
+}
+
+.btn-text:hover {
+  color: var(--clr-hover);
+}
+
+.add-todo input:placeholder {
+  color: var(--clr-text-secondary);
+}
+
+.todo-list__item {
+  border-color: var(--clr-border);
+}
+.todo-list__item [type=checkbox]:checked + label {
+  color: var(--clr-text-tertiary);
 }
 
 .menu {
-  color: hsl(236deg, 9%, 61%);
+  color: var(--clr-text-secondary);
+}
+
+.dark {
+  background-image: url(../images/bg-mobile-dark.jpg);
+}
+@media (min-width: 600px) {
+  .dark {
+    background-image: url(../images/bg-desktop-dark.jpg);
+  }
 }
 
 .container {
   width: 90%;
   max-width: 540px;
   margin-inline: auto;
-  background-color: hsl(0deg, 0%, 98%);
+  background-color: var(--clr-bg-item);
   border-radius: 6px;
 }
 .container [type=text] {

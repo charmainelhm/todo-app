@@ -4,10 +4,46 @@ body {
   background-image: url(../images/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: $clr-light-neutral-200;
-  color: $clr-light-neutral-500;
+  background-color: var(--clr-bg-main);
+  color: var(--clr-text-primary);
+
+  @media (min-width: 600px) {
+    background-image: url(../images/bg-desktop-light.jpg);
+  }
+}
+
+h1 {
+  color: $clr-light-neutral-100;
+}
+
+.btn-text:hover {
+  color: var(--clr-hover);
+}
+
+.add-todo {
+  input:placeholder {
+    color: var(--clr-text-secondary);
+  }
+}
+
+.todo-list__item {
+  border-color: var(--clr-border);
+
+  [type="checkbox"]:checked {
+    & + label {
+      color: var(--clr-text-tertiary);
+    }
+  }
 }
 
 .menu {
-  color: $clr-light-neutral-400;
+  color: var(--clr-text-secondary);
+}
+
+.dark {
+  background-image: url(../images/bg-mobile-dark.jpg);
+
+  @media (min-width: 600px) {
+    background-image: url(../images/bg-desktop-dark.jpg);
+  }
 }

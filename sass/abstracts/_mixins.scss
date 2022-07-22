@@ -1,7 +1,7 @@
 @use "../abstracts/colors" as *;
 
 @mixin base {
-  background-color: $clr-light-neutral-100;
+  background-color: var(--clr-bg-item);
   border-radius: 6px;
 }
 
@@ -24,7 +24,7 @@
   width: 20px;
   height: 20px;
   margin-right: 1rem;
-  border: 1.5px solid $clr-light-neutral-200;
+  border: 1.5px solid var(--clr-radio);
 }
 
 @mixin padding($inline: 2rem, $block: 1.5rem, $type: default) {

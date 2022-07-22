@@ -52,7 +52,7 @@ const updateTodoList = function (addNewItem = false) {
       ? addItem()
       : currentList.forEach((item) => addItem(item));
   } else {
-    if (currentList.length === 1) todoList.innerHTML = "";
+    if (currentList.length <= 1) todoList.innerHTML = "";
     const todoItem = currentList[currentList.length - 1];
     addItem(todoItem);
   }
@@ -74,6 +74,7 @@ const addNewTodo = function (e) {
   });
   clearInput();
   updateActiveCounter();
+  filterLists();
   updateTodoList(true);
 };
 
@@ -84,6 +85,7 @@ const removeTodo = function (e) {
   const itemIndex = Number(target.closest("li").dataset.index);
   const arrayIndex = todoAllItems.findIndex((item) => item.index === itemIndex);
   todoAllItems.splice(arrayIndex, 1);
+  updateActiveCounter();
   updateTodoList(false);
 };
 
@@ -92,17 +94,17 @@ const updateItemState = function (e) {
   const currentItem = todoAllItems.find((item) => item.index === currentIndex);
   currentItem.completed = !currentItem.completed;
   updateActiveCounter();
-  updateLists();
+  filterLists();
+  updateTodoList();
 };
 
 const resetFilterBtnStyle = function () {
   filterTodoBtns.forEach((button) => (button.dataset.currentFilter = "false"));
 };
 
-const updateLists = function () {
+const filterLists = function () {
   todoActiveItems = todoAllItems.filter((item) => !item.completed);
   todoCompletedItems = todoAllItems.filter((item) => item.completed);
-  updateTodoList();
 };
 
 const updateActiveCounter = function () {
@@ -116,7 +118,8 @@ filterTodoBtns.forEach((button) =>
     resetFilterBtnStyle();
     this.dataset.currentFilter = "true";
     currentListName = e.target.innerText;
-    updateLists();
+    filterLists();
+    updateTodoList();
   })
 );
 
@@ -125,5 +128,6 @@ todoList.addEventListener("change", updateItemState);
 todoList.addEventListener("click", removeTodo);
 btnClearCompleted.addEventListener("click", function () {
   todoAllItems = [...todoActiveItems];
-  updateLists();
+  filterLists();
+  updateTodoList();
 });

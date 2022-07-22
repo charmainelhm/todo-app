@@ -1,4 +1,5 @@
 @use "../abstracts/mixins" as *;
+@use "../abstracts/colors" as *;
 
 .menu {
   @media (max-width: 600px) {
@@ -7,6 +8,7 @@
     .list-filter {
       position: absolute;
       @include base;
+      background-color: $clr-light-neutral-100;
       @include padding;
       top: 140%;
       left: 0;

@@ -5,8 +5,4 @@
   &::before {
     @include custom-checkbox;
   }
-
-  input:placeholder {
-    color: $clr-light-neutral-400;
-  }
 }

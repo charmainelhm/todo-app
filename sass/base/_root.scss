@@ -1,0 +1,23 @@
+@use "../abstracts/colors" as *;
+
+:root {
+  --clr-bg-main: #{$clr-light-neutral-200};
+  --clr-bg-item: #{$clr-light-neutral-100};
+  --clr-border: #{$clr-light-neutral-300};
+  --clr-radio: #{$clr-light-neutral-200};
+  --clr-hover: #{$clr-light-neutral-500};
+  --clr-text-primary: #{$clr-light-neutral-500}; // input and todo items
+  --clr-text-secondary: #{$clr-light-neutral-400}; // menu text, "drag drop", placeholder
+  --clr-text-tertiary: #{$clr-light-neutral-300}; // completed item
+}
+
+.dark {
+  --clr-bg-main: #{$clr-dark-neutral-700};
+  --clr-bg-item: #{$clr-dark-neutral-600};
+  --clr-border: #{$clr-dark-neutral-300};
+  --clr-radio: #{$clr-dark-neutral-500};
+  --clr-hover: #{$clr-dark-neutral-100};
+  --clr-text-primary: #{$clr-dark-neutral-200}; // input and todo items
+  --clr-text-secondary: #{$clr-dark-neutral-300}; // menu text, "drag drop", placeholder
+  --clr-text-tertiary: #{$clr-dark-neutral-400}; // completed item
+}
