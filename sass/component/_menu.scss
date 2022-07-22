@@ -8,7 +8,6 @@
     .list-filter {
       position: absolute;
       @include base;
-      background-color: $clr-light-neutral-100;
       @include padding;
       top: 140%;
       left: 0;

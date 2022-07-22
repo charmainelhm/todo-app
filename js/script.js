@@ -1,10 +1,13 @@
 "use strict";
 
+const body = document.querySelector("body");
 const addTodo = document.querySelector(".add-todo");
 const todoInput = addTodo.querySelector("input");
 const todoList = document.querySelector(".todo-list");
 const filterTodoBtns = document.querySelectorAll(".list-filter button");
 const btnClearCompleted = document.querySelector(".btn-clear-completed");
+const toggleLightMode = document.querySelector("#light-mode");
+const toggleDarkMode = document.querySelector("#dark-mode");
 const activeCounter = document.querySelector(".menu__summary .items-left");
 let todoAllItems = [];
 let todoActiveItems = [];
@@ -126,6 +129,17 @@ filterTodoBtns.forEach((button) =>
 addTodo.addEventListener("submit", addNewTodo);
 todoList.addEventListener("change", updateItemState);
 todoList.addEventListener("click", removeTodo);
+toggleLightMode.addEventListener("change", function () {
+  if (this.checked) {
+    body.classList.remove("dark");
+  }
+});
+
+toggleDarkMode.addEventListener("change", function () {
+  if (this.checked) {
+    body.classList.add("dark");
+  }
+});
 btnClearCompleted.addEventListener("click", function () {
   todoAllItems = [...todoActiveItems];
   filterLists();

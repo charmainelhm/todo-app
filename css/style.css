@@ -151,7 +151,6 @@ button[data-current-filter=true] {
     position: absolute;
     background-color: var(--clr-bg-item);
     border-radius: 6px;
-    background-color: hsl(0deg, 0%, 98%);
     padding: 1.5rem 2rem;
     top: 140%;
     left: 0;
