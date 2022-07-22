@@ -198,6 +198,10 @@ body {
   padding: 1.5rem 2rem;
 }
 
+.pd-600 {
+  padding: 3rem 3rem;
+}
+
 .pd-block-600 {
   padding-block: 3rem;
 }
@@ -233,6 +237,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+.align-center {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

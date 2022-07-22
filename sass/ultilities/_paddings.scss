@@ -4,6 +4,10 @@
   @include padding;
 }
 
+.pd-600 {
+  @include padding(3rem, 3rem);
+}
+
 .pd-block-600 {
   @include padding($block: 3rem, $type: block);
 }

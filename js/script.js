@@ -12,9 +12,12 @@ let todoCompletedItems = [];
 let currentListName, currentList;
 
 const addItem = function (item) {
-  const html = `<li class="todo-list__item | flex-row | pd-400" data-index="${
-    item.index
-  }">
+  const html =
+    item === undefined
+      ? `<p class="pd-600 align-center">List is empty at the moment.</p>`
+      : `<li class="todo-list__item | flex-row | pd-400" data-index="${
+          item.index
+        }">
   <div>
     <input
       type="checkbox"
@@ -30,7 +33,7 @@ const addItem = function (item) {
     ><img src="images/icon-cross.svg" />
   </button>
 </li>`;
-
+  console.log(html);
   todoList.insertAdjacentHTML("beforeend", html);
 };
 
@@ -45,8 +48,11 @@ const updateTodoList = function (addNewItem = false) {
 
   if (!addNewItem) {
     todoList.innerHTML = "";
-    currentList.forEach((item) => addItem(item));
+    currentList.length === 0
+      ? addItem()
+      : currentList.forEach((item) => addItem(item));
   } else {
+    if (currentList.length === 1) todoList.innerHTML = "";
     const todoItem = currentList[currentList.length - 1];
     addItem(todoItem);
   }
