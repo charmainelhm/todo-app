@@ -163,7 +163,7 @@ button[data-current-filter=true] {
     position: absolute;
     background-color: var(--clr-bg-item);
     border-radius: 6px;
-    padding: 1.5em 2em;
+    padding: 1.5em 2em 1.5em 2em;
     top: 140%;
     left: 0;
     right: 0;
@@ -253,15 +253,15 @@ h1 {
 }
 
 .pd-400 {
-  padding: 1.5em 2em;
+  padding: 1.5em 2em 1.5em 2em;
 }
 
 .pd-600 {
-  padding: 3em 1em;
+  padding: 3em 1em 3em 1em;
 }
 
 .pd-block-600 {
-  padding-block: 3em;
+  padding-block: 5em 3em;
 }
 
 .flex-row {

@@ -27,12 +27,27 @@
   border: 1.5px solid var(--clr-radio);
 }
 
-@mixin padding($inline: 2em, $block: 1.5em, $type: default) {
+@mixin padding(
+  $left: 2em,
+  $top: 1.5em,
+  $type: default,
+  $right: $left,
+  $bottom: $top
+) {
   @if $type == inline {
-    padding-inline: $inline;
+    padding-inline: $left $right;
   } @else if $type == block {
-    padding-block: $block;
+    padding-block: $top $bottom;
   } @else {
-    padding: $block $inline;
+    padding: $top $right $bottom $left;
   }
 }
+// @mixin padding($inline: 2em, $block: 1.5em, $type: default) {
+//   @if $type == inline {
+//     padding-inline: $inline;
+//   } @else if $type == block {
+//     padding-block: $block;
+//   } @else {
+//     padding: $block $inline;
+//   }
+// }

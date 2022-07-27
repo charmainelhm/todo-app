@@ -9,5 +9,5 @@
 }
 
 .pd-block-600 {
-  @include padding($block: 3em, $type: block);
+  @include padding($top: 5em, $type: block, $bottom: 3em);
 }
