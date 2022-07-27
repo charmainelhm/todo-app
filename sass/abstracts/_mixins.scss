@@ -51,3 +51,7 @@
 //     padding: $block $inline;
 //   }
 // }
+
+@mixin transition($element: color) {
+  transition: $element 0.15s ease-in;
+}

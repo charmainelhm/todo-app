@@ -201,6 +201,9 @@ h1 {
   color: hsl(0deg, 0%, 98%);
 }
 
+.btn-text {
+  transition: color 0.15s ease-in;
+}
 .btn-text:hover {
   color: var(--clr-hover);
 }
@@ -218,6 +221,14 @@ h1 {
 
 .menu {
   color: var(--clr-text-secondary);
+}
+
+.attribution a {
+  color: hsl(220deg, 98%, 61%);
+  transition: color 0.15s ease-in;
+}
+.attribution a:hover {
+  color: hsl(280deg, 87%, 65%);
 }
 
 .dark {

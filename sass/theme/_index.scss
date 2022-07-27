@@ -1,4 +1,5 @@
 @use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
 
 body {
   background-image: url(../images/bg-mobile-light.jpg);
@@ -16,8 +17,12 @@ h1 {
   color: $clr-light-neutral-100;
 }
 
-.btn-text:hover {
-  color: var(--clr-hover);
+.btn-text {
+  @include transition;
+
+  &:hover {
+    color: var(--clr-hover);
+  }
 }
 
 .add-todo {
@@ -38,6 +43,17 @@ h1 {
 
 .menu {
   color: var(--clr-text-secondary);
+}
+
+.attribution {
+  a {
+    color: $clr-accent;
+    @include transition;
+
+    &:hover {
+      color: $clr-gradient-two;
+    }
+  }
 }
 
 .dark {
