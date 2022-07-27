@@ -17,7 +17,7 @@ let currentListName, currentList;
 const addItem = function (item) {
   const html =
     item === undefined
-      ? `<p class="pd-600 align-center">List is empty at the moment.</p>`
+      ? `<li class="pd-600 align-center">List is empty at the moment.</li>`
       : `<li class="todo-list__item | flex-row | pd-400" data-index="${
           item.index
         }">
