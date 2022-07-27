@@ -27,7 +27,7 @@
   border: 1.5px solid var(--clr-radio);
 }
 
-@mixin padding($inline: 2rem, $block: 1.5rem, $type: default) {
+@mixin padding($inline: 2em, $block: 1.5em, $type: default) {
   @if $type == inline {
     padding-inline: $inline;
   } @else if $type == block {

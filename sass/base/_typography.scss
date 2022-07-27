@@ -13,5 +13,20 @@ h1 {
 }
 
 .attribution {
+  font-size: $fs-200;
   padding-top: 10rem;
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: $fs-400;
+  }
+
+  h1 {
+    font-size: $fs-600;
+  }
+
+  .menu > *:not(div) {
+    font-size: $fs-300;
+  }
 }

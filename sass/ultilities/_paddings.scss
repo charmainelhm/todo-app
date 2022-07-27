@@ -5,9 +5,9 @@
 }
 
 .pd-600 {
-  @include padding(3rem, 3rem);
+  @include padding(1em, 3em);
 }
 
 .pd-block-600 {
-  @include padding($block: 3rem, $type: block);
+  @include padding($block: 3em, $type: block);
 }

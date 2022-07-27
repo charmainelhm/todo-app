@@ -86,9 +86,21 @@ h1 {
 }
 
 .attribution {
+  font-size: 1.1rem;
   padding-top: 10rem;
 }
 
+@media (min-width: 600px) {
+  body {
+    font-size: 1.6rem;
+  }
+  h1 {
+    font-size: 3.6rem;
+  }
+  .menu > *:not(div) {
+    font-size: 1.4rem;
+  }
+}
 .todo-list__item {
   border-bottom: 1.5px solid;
 }
@@ -151,7 +163,7 @@ button[data-current-filter=true] {
     position: absolute;
     background-color: var(--clr-bg-item);
     border-radius: 6px;
-    padding: 1.5rem 2rem;
+    padding: 1.5em 2em;
     top: 140%;
     left: 0;
     right: 0;
@@ -241,15 +253,15 @@ h1 {
 }
 
 .pd-400 {
-  padding: 1.5rem 2rem;
+  padding: 1.5em 2em;
 }
 
 .pd-600 {
-  padding: 3rem 3rem;
+  padding: 3em 1em;
 }
 
 .pd-block-600 {
-  padding-block: 3rem;
+  padding-block: 3em;
 }
 
 .flex-row {
