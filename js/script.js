@@ -9,10 +9,30 @@ const btnClearCompleted = document.querySelector(".btn-clear-completed");
 const toggleLightMode = document.querySelector("#light-mode");
 const toggleDarkMode = document.querySelector("#dark-mode");
 const activeCounter = document.querySelector(".menu__summary .items-left");
+let draggedElement, afterElement;
 let todoAllItems = [];
 let todoActiveItems = [];
 let todoCompletedItems = [];
 let currentListName, currentList;
+
+const updateArray = function () {
+  const movedElementIndex = draggedElement.dataset.index;
+  const elementArrIndex = findArrayIndex(todoAllItems, movedElementIndex);
+  let moveTo;
+  if (!afterElement) {
+    const beforeElement = todoList.querySelector(
+      ".todo-list__item:nth-last-child(2)"
+    );
+    const beforeElementData = beforeElement.dataset.index;
+    moveTo = findArrayIndex(todoAllItems, beforeElementData);
+  } else {
+    const afterElementData = afterElement.dataset.index;
+    moveTo = findArrayIndex(todoAllItems, afterElementData) - 1;
+  }
+
+  todoAllItems.move(elementArrIndex, moveTo);
+  console.table(todoAllItems);
+};
 
 const addItem = function (item) {
   const html =
@@ -42,13 +62,13 @@ const addItem = function (item) {
 const selectTodoItems = function () {
   const items = document.querySelectorAll(".todo-list__item");
   items.forEach((item) => {
-    console.log(item.getBoundingClientRect());
     item.addEventListener("dragstart", function () {
       this.classList.add("dragging");
     });
 
     item.addEventListener("dragend", function () {
       this.classList.remove("dragging");
+      updateArray();
     });
   });
 };
@@ -129,13 +149,21 @@ const updateActiveCounter = function () {
   activeCounter.innerText = `${activeItems}`;
 };
 
+Array.prototype.move = function (from, to) {
+  this.splice(to, 0, this.splice(from, 1)[0]);
+};
+
+const findArrayIndex = function (array, index) {
+  return array.findIndex((el) => el.index == index);
+};
+
 const dragAndDrop = function (e) {
   e.preventDefault();
-  const draggable = document.querySelector(".dragging");
+  draggedElement = document.querySelector(".dragging");
   const otherElements = [
     ...document.querySelectorAll(".todo-list__item:not(.dragging)"),
   ];
-  const afterElement = otherElements.reduce(
+  afterElement = otherElements.reduce(
     (closest, child) => {
       const box = child.getBoundingClientRect();
       const offset = e.clientY - (box.top + box.height / 2);
@@ -147,11 +175,11 @@ const dragAndDrop = function (e) {
     },
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
-  console.log(afterElement);
+
   if (!afterElement) {
-    this.appendChild(draggable);
+    todoList.appendChild(draggedElement);
   } else {
-    this.insertBefore(draggable, afterElement);
+    todoList.insertBefore(draggedElement, afterElement);
   }
 };
 
@@ -169,7 +197,10 @@ filterTodoBtns.forEach((button) =>
 addTodo.addEventListener("submit", addNewTodo);
 todoList.addEventListener("change", updateItemState);
 todoList.addEventListener("click", removeTodo);
-todoList.addEventListener("dragover", dragAndDrop);
+todoList.addEventListener("dragover", function (e) {
+  dragAndDrop(e);
+});
+
 toggleLightMode.addEventListener("change", function () {
   if (this.checked) {
     body.classList.remove("dark");
