@@ -3,7 +3,7 @@
 const body = document.querySelector("body");
 const addTodo = document.querySelector(".add-todo");
 const todoInput = addTodo.querySelector("input");
-const todoList = document.querySelector(".todo-list");
+const todoList = document.querySelector(".todo-list"); // draggable elements container
 const filterTodoBtns = document.querySelectorAll(".list-filter button");
 const btnClearCompleted = document.querySelector(".btn-clear-completed");
 const toggleLightMode = document.querySelector("#light-mode");
@@ -20,7 +20,7 @@ const addItem = function (item) {
       ? `<li class="pd-600 align-center">List is empty at the moment.</li>`
       : `<li class="todo-list__item | flex-row | pd-400" data-index="${
           item.index
-        }">
+        }" draggable="true">
   <div>
     <input
       type="checkbox"
@@ -36,8 +36,21 @@ const addItem = function (item) {
     ><img src="images/icon-cross.svg" />
   </button>
 </li>`;
-  console.log(html);
   todoList.insertAdjacentHTML("beforeend", html);
+};
+
+const selectTodoItems = function () {
+  const items = document.querySelectorAll(".todo-list__item");
+  items.forEach((item) => {
+    console.log(item.getBoundingClientRect());
+    item.addEventListener("dragstart", function () {
+      this.classList.add("dragging");
+    });
+
+    item.addEventListener("dragend", function () {
+      this.classList.remove("dragging");
+    });
+  });
 };
 
 const updateTodoList = function (addNewItem = false) {
@@ -59,6 +72,7 @@ const updateTodoList = function (addNewItem = false) {
     const todoItem = currentList[currentList.length - 1];
     addItem(todoItem);
   }
+  selectTodoItems();
 };
 
 // Clear input field after adding item
@@ -115,6 +129,32 @@ const updateActiveCounter = function () {
   activeCounter.innerText = `${activeItems}`;
 };
 
+const dragAndDrop = function (e) {
+  e.preventDefault();
+  const draggable = document.querySelector(".dragging");
+  const otherElements = [
+    ...document.querySelectorAll(".todo-list__item:not(.dragging)"),
+  ];
+  const afterElement = otherElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = e.clientY - (box.top + box.height / 2);
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+  console.log(afterElement);
+  if (!afterElement) {
+    this.appendChild(draggable);
+  } else {
+    this.insertBefore(draggable, afterElement);
+  }
+};
+
 filterTodoBtns.forEach((button) =>
   button.addEventListener("click", function (e) {
     if (todoAllItems.length === 0) return;
@@ -129,6 +169,7 @@ filterTodoBtns.forEach((button) =>
 addTodo.addEventListener("submit", addNewTodo);
 todoList.addEventListener("change", updateItemState);
 todoList.addEventListener("click", removeTodo);
+todoList.addEventListener("dragover", dragAndDrop);
 toggleLightMode.addEventListener("change", function () {
   if (this.checked) {
     body.classList.remove("dark");

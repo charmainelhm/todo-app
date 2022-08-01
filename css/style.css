@@ -103,6 +103,10 @@ h1 {
 }
 .todo-list__item {
   border-bottom: 1.5px solid;
+  cursor: move;
+}
+.todo-list__item.dragging {
+  opacity: 0.5;
 }
 .todo-list__item label {
   position: relative;

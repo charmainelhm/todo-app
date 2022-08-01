@@ -3,6 +3,11 @@
 
 .todo-list__item {
   border-bottom: 1.5px solid;
+  cursor: move;
+
+  &.dragging {
+    opacity: 0.5;
+  }
 
   label {
     position: relative;
